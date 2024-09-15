@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Shirt Order</title>
+</head>
+<style>
+    #receipt{
+        border: 2px solid black;
+        padding: 4px;
+        margin-top: 5px;
+        width: 50%;
+    }
+</style>
+<body>
+    <center>
+        <h1>Offer!!!!!!</h1>
+        <h2>Grab your Customized T-shirts now</h2>
+        <p>Fill the form given below</p>
+
+        <form id="personalDetailsForm">
+            <fieldset>
+                <legend>Personal Details:</legend>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter name"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="text" id="email" placeholder="Enter email"><br><br>
+
+                <label for="dateob">DOB:</label>
+                <input type="date" id="dateob" placeholder="Enter DOB"><br><br>
+
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" placeholder="Enter phone no."><br><br>
+
+                <label for="address">Address:</label>
+                <textarea id="address" placeholder="Enter address" rows="3" cols="30"></textarea><br><br>
+
+                <label for="gender">Gender:</label>
+                <input type="radio" id="male" name="gender" value="Male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="Other">
+                <label for="other">Other</label><br><br>
+
+                <input type="submit" value="Submit Details">
+            </fieldset>
+        </form>
+
+        <br><br>
+
+        <form id="orderForm">
+            <fieldset>
+                <legend>T-Shirt Details</legend>
+                
+                <label for="tagline">Tagline (max 100 characters):</label>
+                <input type="text" id="tagline" placeholder="Enter tagline"><br><br>
+
+                <label for="size">Select Size:</label>
+                <select id="size">
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="XL">X-Large</option>
+                    <option value="XXL">XX-Large</option>
+                </select><br><br>
+
+                <label for="delivery">Delivery:</label>
+                <input type="radio" id="sev" name="delivery" value="7 days">
+                <label for="sev">7 days</label>
+                <input type="radio" id="four" name="delivery" value="14 days">
+                <label for="four">14 days</label><br><br>
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" rows="3" cols="30" maxlength="100"></textarea><br><br>
+
+                <input type="checkbox" id="tandc">
+                <label for="tandc">Agree to the terms and conditions</label><br><br>
+
+                <input type="submit" value="Submit Order">
+            </fieldset>
+        </form>
+
+        <div id="receipt"></div>
+    </center>
+</body>
+<script src="app.js"></script>
+</html>
