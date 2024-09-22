@@ -1,12 +1,12 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     const personalDetailsForm = document.getElementById('personalDetailsForm');
     const orderForm = document.getElementById('orderForm');
     const receiptDiv = document.getElementById('receipt');
 
-    let personalDetailsSubmitted = false; 
+    let personalDetailsSubmitted = false;
 
-    personalDetailsForm.addEventListener('submit', function(event) {
+    personalDetailsForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
         const name = document.getElementById('name').value.trim();
@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        if (email.indexOf('@') === -1 && email.indexOf('.') === -1) {
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?<!\.)$/;
+        if (!emailPattern.test(email)) {
             alert('Please enter a valid email address.');
             return;
         }
@@ -31,7 +32,10 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        if (phone.length !== 10 || isNaN(phone)) {
+        const phonePattern = /^[6-9]\d{9}$/;
+        const repetitiveNumbers = /^(.)\1+$/; 
+
+        if (!phonePattern.test(phone) || repetitiveNumbers.test(phone)) {
             alert('Please enter a valid 10-digit mobile number.');
             return;
         }
@@ -50,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
         alert('Personal details submitted successfully.');
     });
 
-    orderForm.addEventListener('submit', function(event) {
+    orderForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
         if (!personalDetailsSubmitted) {
@@ -89,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const currentDate = new Date().toLocaleDateString('en-IN');
 
         const name = document.getElementById('name').value.trim();
-        const address = document.getElementById('address').value.trim(); 
+        const address = document.getElementById('address').value.trim();
         const tagline = document.getElementById('tagline').value.trim();
         const size = document.getElementById('size').value;
 
